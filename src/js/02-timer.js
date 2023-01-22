@@ -1,5 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import 'notiflix/dist/notiflix-3.2.6.min.css';
 
 const refs = {
   btnStart: document.querySelector('button[data-start]'),
@@ -41,7 +43,7 @@ function getDateDifference() {
     counter = convertMs(difference);
   } else {
     refs.btnStart.disabled = true;
-    window.alert('Please choose a date in the future');
+    Notify.failure('Please choose a date in the future');
   }
 }
 
